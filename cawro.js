@@ -5,19 +5,19 @@
 /* ----------------------------------------------------------------------------
 /* http://www.pubnub.com/console?channel=PubNub2&pub=demo&sub=demo
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-var multiplayer = PUBNUB.init({
+/*var multiplayer = PUBNUB.init({
     publish_key   : 'demo',
     subscribe_key : 'demo'
 });
 
 multiplayer.player         = {};
-multiplayer.player.channel = document.getElementById("newseed").value;
+multiplayer.player.channel = document.getElementById("newseed").value;*/
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 /* Receive Remote Player Data
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-connect_world(multiplayer.player.channel);
-function connect_world(world_name) {
+//connect_world(multiplayer.player.channel);
+/*function connect_world(world_name) {
     multiplayer.unsubscribe({ channel : multiplayer.player.channel });
     multiplayer.subscribe({
         backfill : true,
@@ -27,32 +27,32 @@ function connect_world(world_name) {
         }
     });
     multiplayer.player.channel = world_name;
-}
+}*/
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 /* Send Remote Player Data
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 function send( name, data ) {
-    multiplayer.publish({
+    /*multiplayer.publish({
         channel : multiplayer.player.channel,
         message : {
             name : name,
             data : data
         }
-    });
+    });*/
 }
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 /* Receive New Car Addition
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 var remotecarsnum = 0;
-multiplayer.events.bind( "champion", function(data) {
+/*multiplayer.events.bind( "champion", function(data) {
     
     data.car_def.remoted = true;
     cw_carScores.push(data);
     PUBNUB.$("remotecarsnum").innerHTML = ++remotecarsnum;
 
-} );
+} );*/
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 /* Simple Log Function (Because Google Chrome Debugger Crashes)
@@ -375,7 +375,7 @@ function cw_createRandomCar(i) {
     car_def.wheel_vertex1 = Math.floor(sharernd()*8) % 8;
     car_def.wheel_vertex2 = Math.floor(sharernd()*8);
 
-    car_def.uuid = multiplayer.uuid().slice(-6);
+    //car_def.uuid = multiplayer.uuid().slice(-6);
 
     return car_def;
 }
